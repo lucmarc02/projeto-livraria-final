@@ -1,0 +1,34 @@
+import { RiCloseLargeFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
+
+function Menu({ toggleSidebar }) {
+  return (
+    <div className="menu">
+      <span className="menu-btn" onClick={toggleSidebar}>
+      <RiCloseLargeFill />
+      </span>
+      
+      <nav>
+
+       <Link to=""> <img src="./images/logolivraria.png" alt="logo" className="logolivraria-icon" /></Link>
+    </nav>
+
+      <nav>
+        <li>
+          <Link to="/">⭐ - Listar livros</Link>
+        </li>
+        <li>
+          <Link to="/create-book">🦸🏽‍♂️ - Adcionar Livro</Link>
+        </li>
+        <li>
+          <Link to="">🖌️ - Novo Link 1</Link>
+        </li>
+        <li>
+          <Link to="">👌🏽 - Novo Link 2</Link>
+        </li>
+      </nav>
+    </div>
+  );
+}
+
+export default Menu;
