@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
 const BookCard = ({ books }) => {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [bookList, setBookList] = useState([]);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const BookCard = ({ books }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:8082/api/books/${id}`)
+          .delete(`${apiUrl}/api/books/${id}`)
           .then(() => {
             setBookList(bookList.filter((book) => book._id !== id));
             Swal.fire("Deletado!", "O livro foi removido com sucesso.", "success");
