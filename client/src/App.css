@@ -7,13 +7,12 @@
   font-family: "Titillium Web", sans-serif;
 }
 
-
 .menu {
-   background-color: #2c3e50;
-  height: 100vh;
+  background-color: #2c3e50;
+  /* REMOVA: height: 100vh; */
   padding-left: 40px;
   padding-top: 30px;
-  text-decoration: none;
+  min-height: 100vh; /* Adicione isso em vez de height */
 }
 
 .logo {
@@ -24,9 +23,9 @@
 
 .layout {
   display: grid;
-  grid-template-columns: 1fr 4fr; 
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: auto 1fr; /* Altere para auto 1fr */
   min-height: 100vh;
- 
 }
 
 .layout.close {
@@ -34,40 +33,31 @@
   grid-template-columns: 1fr;
 }
 
-.layout.close .layout_menu {
-  display: none;
-}
-
-.layout.close .layout_header,
-.layout.close .layout_content {
-  grid-column: 1 / 3; /* Ocupa toda a largura quando menu está fechado */
-}
-
 .layout_header {
   grid-row: 1 / 2;
   grid-column: 2 / 3;
+  height: 80px; /* Altura fixa apenas para o header */
 }
 
-
 .layout_menu {
-  grid-row: 1 / 3;
-  grid-column: 1 / 2; 
-  background-color: #eaf1f6; /* Adicione cor aqui também */
-  text-decoration: none;
- 
+  grid-row: 1 / 3; /* Ocupa da linha 1 à 3 (header + content) */
+  grid-column: 1 / 2;
+  background-color: #2c3e50;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 80px 1fr;
+  min-height: 100vh;
 }
 
 .layout_content {
-  text-align: center;
-  padding-top: 30px;
-
   grid-row: 2 / 3;
   grid-column: 2 / 3;
   padding: 30px;
-  overflow-x: auto; /* Adicione para rolagem horizontal se necessário */
-} 
-
-
+  min-height: calc(100vh - 80px); /* Altura mínima: viewport menos header */
+}
 
 .menu nav {
   list-style-type: none;
@@ -79,9 +69,9 @@ a {
 }
 
 .header_nav {
-   background-color: #e6ebf1;
+  background-color: #e6ebf1;
   height: 80px;
-    color: #333;
+  color: #333;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -152,7 +142,6 @@ a {
   display: flex;
   margin-left: 25%;
 }
-
 
 /* botões */
 .btn {
