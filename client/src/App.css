@@ -13,6 +13,7 @@
   height: 100vh;
   padding-left: 40px;
   padding-top: 30px;
+  text-decoration: none;
 }
 
 .logo {
@@ -23,7 +24,9 @@
 
 .layout {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 4fr; 
+  min-height: 100vh;
+ 
 }
 
 .layout.close {
@@ -31,20 +34,40 @@
   grid-template-columns: 1fr;
 }
 
+.layout.close .layout_menu {
+  display: none;
+}
+
+.layout.close .layout_header,
+.layout.close .layout_content {
+  grid-column: 1 / 3; /* Ocupa toda a largura quando menu está fechado */
+}
+
 .layout_header {
   grid-row: 1 / 2;
   grid-column: 2 / 3;
 }
 
+
 .layout_menu {
   grid-row: 1 / 3;
-  grid-column: 1 / 2;
+  grid-column: 1 / 2; 
+  background-color: #eaf1f6; /* Adicione cor aqui também */
+  text-decoration: none;
+ 
 }
 
 .layout_content {
   text-align: center;
   padding-top: 30px;
-}
+
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  padding: 30px;
+  overflow-x: auto; /* Adicione para rolagem horizontal se necessário */
+} 
+
+
 
 .menu nav {
   list-style-type: none;
